@@ -7,11 +7,12 @@ app = Flask(__name__)
 
 @app.route('/hello', methods=['GET', 'POST'])
 def hello_world():
-    return render_template("sample.html")
+    name = "World"
+    return render_template("sample.html", name=name)
 
 @app.route('/hello/<name>', methods=['GET', 'POST'])
 def hello_name(name):
-    return "Hello, {}.".format(name)
+    return render_template("sample.html", name=name)
 
 if __name__ == '__main__':
     app.run(host = '0.0.0.0', port=8000)
